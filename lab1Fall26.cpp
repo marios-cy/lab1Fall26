@@ -41,7 +41,13 @@ int main (){
 
 		}
 		else if (option == 4) {
-			drawSquareFilled(4, '#');
+			do {
+				cout << "\nEnter size of the square  (1--" << MAX_LEN << "):";
+				cin >> size;
+			} while (size<1 || size>MAX_LEN);
+			cout << "\nEnter drawing sumbol";
+			cin >> sym;
+			drawSquareFilled(size,sym);
 		}
 		else if (option == 4) {
 
