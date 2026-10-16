@@ -3,12 +3,14 @@ using namespace std;
 
 //prototype functions
 void drawhorizontalline(int length, char ch);
+void drawSquareFilled(int size, char sym);
 
 int main (){
 	const int MAX_LEN = 80;
 	int option;
-	int len;
+	int len,size;
 	char sym;
+	
 
 	do {
 		cout << "\n0) quit"
@@ -39,7 +41,7 @@ int main (){
 
 		}
 		else if (option == 4) {
-
+			drawSquareFilled(4, '#');
 		}
 		else if (option == 4) {
 
@@ -58,9 +60,15 @@ int main (){
 	return 0;
 }
 //draws horizontal line according to the arguments
+//lentgh must be greate or equal than one
 void drawhorizontalline(int len, char sym) {
-	if (len <= 0) return;
 	for (int i = 0; i < len; ++i) std::cout << sym;
     std::cout << '\n';
 
+}
+//lentgh must be greate or equal to 2
+void drawSquareFilled(int size, char sym) {
+	for (int i = 0; i < size; i++) {
+		drawhorizontalline(size, sym);
+	}
 }
