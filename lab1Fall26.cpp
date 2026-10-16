@@ -4,6 +4,8 @@ using namespace std;
 //prototype functions
 void drawhorizontalline(int length, char ch);
 void drawSquareFilled(int size, char sym);
+void drawverticalline(int length, char ch);
+
 
 int main (){
 	const int MAX_LEN = 80;
@@ -35,16 +37,22 @@ int main (){
 
 		}
 		else if (option == 2) {
-
+			do {
+				cout << "\nEnter height of line (1--" << MAX_LEN << "):";
+				cin >> len;
+			} while (len<1 || len>MAX_LEN);
+			cout << "\nEnter drawing sumpol";
+			cin >> sym;
+			drawverticalline(len, sym);
 		}
 		else if (option == 3) {
 
 		}
 		else if (option == 4) {
 			do {
-				cout << "\nEnter size of the square  (1--" << MAX_LEN << "):";
+				cout << "\nEnter size of the square  (2--" << MAX_LEN << "):";
 				cin >> size;
-			} while (size<1 || size>MAX_LEN);
+			} while (size<2 || size>MAX_LEN);
 			cout << "\nEnter drawing sumbol";
 			cin >> sym;
 			drawSquareFilled(size,sym);
@@ -67,14 +75,21 @@ int main (){
 }
 //draws horizontal line according to the arguments
 //lentgh must be greate or equal than one
-void drawhorizontalline(int len, char sym) {
-	for (int i = 0; i < len; ++i) std::cout << sym;
-    std::cout << '\n';
+void drawhorizontalline(const int len, const char sym) {
+	for (int i = 0; i < len; ++i) 
+	cout << sym;
+    cout << '\n';
 
 }
+//draw the square filled according to the arguments
 //lentgh must be greate or equal to 2
-void drawSquareFilled(int size, char sym) {
+void drawSquareFilled(const int size,const char sym) {
 	for (int i = 0; i < size; i++) {
 		drawhorizontalline(size, sym);
+	}
+}
+void drawverticalline(const int length, const char sym) {
+	for (int i = 0; i < length; i++) {
+		cout << "\n"<<sym;
 	}
 }
